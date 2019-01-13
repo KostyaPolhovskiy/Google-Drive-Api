@@ -10,6 +10,10 @@ namespace ConsoleProjectGoogleDriveApi
     {
         static void Main(string[] args)
         {
+            FilesList list = new FilesList();
+            list.CreateDriveService();
+            Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }
