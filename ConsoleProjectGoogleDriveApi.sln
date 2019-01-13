@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleProjectGoogleDriveApi", "ConsoleProjectGoogleDriveApi\ConsoleProjectGoogleDriveApi.csproj", "{3F9030B9-413E-43D3-B197-5F3656DFA0AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F9030B9-413E-43D3-B197-5F3656DFA0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9030B9-413E-43D3-B197-5F3656DFA0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9030B9-413E-43D3-B197-5F3656DFA0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9030B9-413E-43D3-B197-5F3656DFA0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F04E308-3C14-4DF4-B25D-B5B5C4822C82}
+	EndGlobalSection
+EndGlobal
