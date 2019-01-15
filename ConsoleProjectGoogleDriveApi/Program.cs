@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleProjectGoogleDriveApi
 {
@@ -10,9 +7,12 @@ namespace ConsoleProjectGoogleDriveApi
     {
         static void Main(string[] args)
         {
-            FilesList list = new FilesList();
-            list.CreateDriveService();
-            Console.ReadLine();
+            DriveServiceAccount driveServiceAccount = new DriveServiceAccount();
+            List<string> filesTittleList = driveServiceAccount.GetFilesTittleList();
+            foreach (String tittle in filesTittleList)
+            {
+                Console.WriteLine(tittle);
+            }
             Console.ReadLine();
         }
     }
