@@ -13,6 +13,9 @@ namespace ConsoleProjectGoogleDriveApi
     {
 
         private readonly DriveService Service;
+        
+        //необходим update данных
+        private readonly FilesListOfDrive FilesList;
 
         private static readonly string[] Scopes = new[] { DriveService.Scope.DriveFile, DriveService.Scope.Drive };
 
@@ -33,20 +36,42 @@ namespace ConsoleProjectGoogleDriveApi
                 HttpClientInitializer = credential,
                 ApplicationName = "Google Drive API",
             });
+
+            //Set init in constructor, try to solve! This is only DriveServiceAccount
+            FilesList = new FilesListOfDrive(Service);
         }
 
-        public List<String> GetFilesTittleList()
+        public List<String> GetFilesTitleList()
         {
-            // Retrieve all files from GoogleDrive  
-            List <Google.Apis.Drive.v2.Data.File> filesList = FilesList.RetrieveAllFiles(Service);
+            // Retrieve all files 
+            List <Google.Apis.Drive.v2.Data.File> filesList = FilesList.RetrieveAllFiles();
 
             //Choose only Tittles of Files
-            List<String> filesTittleList = new List<String>(); 
+            List<String> filesTitleList = new List<String>(); 
             foreach(Google.Apis.Drive.v2.Data.File file in filesList)
             {
-                filesTittleList.Add(file.Title);
+                filesTitleList.Add(file.Title);               
             }
-            return filesTittleList;
+            return filesTitleList;
+        }
+
+        public void GetFileInfoToConsole(string fileName)
+        {
+            var fileFields = FilesList.RetrieveFileInfo(fileName);
+            foreach(KeyValuePair<string, string> fieldValue in fileFields)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}", fieldValue.Key, fieldValue.Value);
+            }
+        }
+
+        //If i want to add delete or download -> init ConfFiles in constructor
+        public void UploadFile()
+        {
+            ConfigureFiles ConfFiles = new ConfigureFiles(Service);
+            if (ConfFiles.UploadFileFromFileDialog() == null)
+            {
+                Console.WriteLine("File was not upload");
+            }
 
         }
     }
